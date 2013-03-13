@@ -1,0 +1,7 @@
+<h2>Deleting {{ item }}</h2>
+Delete {{ item }}: {{ item_desc }} ?
+<form method="POST" action="/delete_{{ item|lower }}/{{ id }}">
+{% csrf_token %}
+<button class="large" type="submit">Yes</button>
+</form>
+<a href="/"><button class="large">No</button></a>

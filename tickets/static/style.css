@@ -1,0 +1,39 @@
+ul {
+	list-style-type:none;
+}
+
+li {
+	border: 1px solid black;
+	color: black;
+	background-color: #ADD8E6;
+}
+
+button.large {
+height: 4em;
+}
+
+form {
+text-align:center;
+border: 1px dotted black;
+}
+
+label {
+display:block;
+}
+
+#business {
+width:500px;
+overflow:auto;
+}
+
+#contacts {
+float: right;
+overflow:auto;
+width:500px;
+}
+
+#tickets {
+float: left;
+width: 700px;
+overflow:auto;
+}

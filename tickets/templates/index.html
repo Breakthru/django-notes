@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block companies %}
+{% if business_list %}
+<h2>Contacts list</h2>
+<ul>
+{% for b in business_list %}
+<li>
+<a href="/{{ b.id }}">
+<button class="large">
+{{ b.name }}
+</button>
+</a>
+&nbsp;{{ b.category }}
+</li>
+{% endfor %}
+</ul><hr/>
+{% if business_form %}
+<h2>add new business</h2>    
+<form method="POST" action="/add_business">
+{% csrf_token %}
+{{ business_form.as_p }}
+<input type="submit" value="Add Business" />
+</form>
+{% endif %}
+{% endif %}
+
+{% endblock %}
+
+{% block tickets %}
+{% if business %}
+<a href="/" ><button class="large">back</button></a>
+<h2>{{ business.name }} :: Notes</h2>
+<ul>
+{% for t in tickets_list %}
+<li>
+{{ t.what }}
+<br/>
+Date: {{ t.date }} Cost: &pound;{{ t.cost }}
+<br />
+<a href="/edit_ticket/{{ t.pk }}" >
+<button>edit</button></a>
+<a href="/delete_ticket/{{ t.pk }}" >
+<button>delete</button></a>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% if ticket_form %}
+<hr/>
+<h2>Add note</h2>    
+<form method="POST" action="/add_ticket">
+{% csrf_token %}
+{{ ticket_form.as_p }}
+<input type="submit" value="Add Note" />
+</form>
+{% endif %}
+{% endblock %}
+
+{% block contacts %}
+{% if business %}
+<h2>{{ business.name }} :: Contact details</h2>
+<ul>
+{% for c in contacts_list %}
+<li>
+{{ c.name }} , mail: {{ c.email }} , tel: {{ c.tel }}
+<a href="/edit_contact/{{ c.pk }}" >
+<button>edit</button></a>
+<a href="/delete_contact/{{ c.pk }}" >
+<button>delete</button></a>
+</li>
+{% endfor %}
+</ul>
+{% if contact_form %}
+<hr/>
+<h2>Add contact</h2>    
+<form method="POST" action="/add_contact">
+{% csrf_token %}
+{{ contact_form.as_p }}
+<button type="submit">Add Contact</button>
+</form>
+{% endif %}
+{% endif %}
+{% endblock %}

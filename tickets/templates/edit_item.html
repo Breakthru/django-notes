@@ -1,0 +1,6 @@
+<h2>edit {{ item }}</h2>    
+<form method="POST" action="/edit_{{ item|lower }}/{{ id }}">
+{% csrf_token %}
+{{ f.as_p }}
+<button type="submit">Save</button>
+</form>

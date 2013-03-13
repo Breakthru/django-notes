@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<title>Contact manager application</title>
+ <link rel="icon" type="image/png" href="/favicon.png">
+ <link href="{{ STATIC_URL }}style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="business">
+{% block companies %}Contact list{% endblock %}
+</div>
+<div id="tickets">
+{% block tickets %}Notes list{% endblock %}
+</div>
+<div id="contacts">
+{% block contacts %}People list{% endblock %}
+</div>
+</body>
+</html>
