@@ -1,0 +1,24 @@
+<html>
+<head>
+<script>
+var spelling = {'@': 'At', '5': 'five', '7': 'seven', '3': 'three', '0': 'zero', '6': 'six', '9': 'nine', '8': 'eight', '2': 'two', '1': 'one', '.': 'Dot', 'a': 'Alpha', ' ': ' ', 'c': 'Charlie', 'b': 'Bravo', 'e': 'Echo', 'd': 'Delta', 'g': 'Golf', 'f': 'Foxtrot', 'i': 'India', 'h': 'Hotel', 'k': 'Kilo', 'j': 'Juliet', 'm': 'Mike', 'l': 'Lima', 'o': 'Oscar', 'n': 'November', 'q': 'Quebec', 'p': 'Papa', 's': 'Sierra', 'r': 'Romeo', 'u': 'Uniform', 't': 'Tango', 'w': 'Whiskey', 'v': 'Victor', 'y': 'Yankee', 'x': 'X-ray', 'z': 'Zulu', '4': 'four'}
+function spell()
+{
+var input_element = document.getElementById('in');
+var out = document.getElementById('out');
+s = "";
+var input_string = input_element.value;
+for (c in input_string)
+{
+s=s+spelling[input_string[c]]+"<br>"
+}
+out.innerHTML = s;
+};
+</script>
+</head>
+<label for="in">text to spell</label>
+<input id="in" onchange="javascript:spell()" />
+<div id="out">
+spelling will appear here
+</div>
+</html>
